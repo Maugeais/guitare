@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <title>Test </title>
+    <link rel="icon" type="image" href="guitare.png">
+    <link rel="stylesheet" href="css/ui.css" />
+    <script src="js/knobs.js"></script>
+    <!--<script type="text/javascript" src="js/jquery.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  </head>
+  <body>
+    <header></header>
+    <main>
+    
+    <div id="waiting">
+      <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div>
+
+    <div id="acceuil" onclick="startApp()">
+      Chargement...
+
+      <button id="startAp" >commencer </button>
+
+      <div id="accueillImage">
+
+      </div>
+    </div>
+
+      <img id="fretboard"
+          src="css/images/fretboard.svg"
+          width="100%" />
+
+
+    <div id="knobs">
+    
+     
+      <div class="knobs-grid">
+        <legend>Corde</legend>
+
+          <div class="indicator">
+
+              <div class="knob" id="densite"></div>
+
+              <div class="caption">
+                Densité
+                
+                <input type="text"  id="densite-val" class="value"/>
+
+              </div>
+          </div>
+          
+          <div class="indicator">
+
+              <div class="knob" id="raideur"></div>
+
+              <div class="caption">
+                Raideur
+
+                <input type="text"  id="raideur-val" class="value"/>
+
+              </div>
+          </div>
+            
+          <div class="indicator">
+
+              <div class="knob" id="tension"></div>
+
+              <div class="caption">
+                Tension
+
+                <input type="text"  id="tension-val" class="value"/>
+
+              </div>
+          </div>  
+          
+          <div class="indicator">
+        
+            <div class="knob" id="pertes"></div>
+            
+            <div class="caption">
+                Pertes
+
+                <input type="text"  id="pertes-val" class="value"/>
+
+              </div>
+            
+          </div>
+          
+        </div>
+
+        <div class="knobs-grid">
+          <legend>Attaque</legend>
+  
+            <div class="indicator">
+        
+            <div class="knob" id="position"></div>
+            
+            <div class="caption">
+                Position
+                <input type="text"  id="position-val" class="value"/>
+
+              </div>
+            
+          </div>
+  
+          <div class="indicator">
+        
+              <div class="knob" id="force"></div>
+              
+              <div class="caption">
+                  Force
+
+                  <input type="text"  id="force-val" class="value"/>
+
+                </div>
+            
+          </div>
+
+          <div class="indicator">
+        
+              <div class="knob" id="duree"></div>
+              
+              <div class="caption">
+                  Duree
+
+                  <input type="text"  id="duree-val" class="value"/>
+
+                </div>
+            
+          </div>
+        </div>
+        
+        <div id="infos" class="knobs-grid">
+
+          <legend> Infos </legend>
+        
+            <canvas id="wavForm"></canvas>
+
+           <div id="speed"> </div>
+           
+           <div id="midiStatus"> Midi off </div>
+           
+           <button id="audioStart" onclick="window.audioStart()">  </button>
+        </div>
+
+        
+      <!-- mouse/touch events -->
+      <script type="text/javascript" src="js/ui.js"></script>
+    
+    
+      </div>
+    </main>
+    <footer>
+
+   <!--   <div id="keyboard">
+        <ul>
+          <li class="pianokey white e"></li>
+            <li class="pianokey black ds"></li>
+            <li class="pianokey white d"></li>
+            <li class="pianokey black cs"></li>
+            <li class="pianokey white c"></li>
+          <li class="pianokey white b"></li>
+          <li class="pianokey black as"></li>
+          <li class="pianokey white a"></li>
+          <li class="pianokey black gs"></li>
+          <li class="pianokey white g"></li>
+          <li class="pianokey black fs"></li>
+          <li class="pianokey white f"></li>
+          <li class="pianokey white e"></li>
+            <li class="pianokey black ds"></li>
+            <li class="pianokey white d"></li>
+            <li class="pianokey black cs"></li>
+            <li class="pianokey white c"></li>
+          <li class="pianokey white b"></li>
+          <li class="pianokey black as"></li>
+          <li class="pianokey white a"></li>
+          <li class="pianokey black gs"></li>
+          <li class="pianokey white g"></li>
+          <li class="pianokey black fs"></li>
+          <li class="pianokey white f"></li>
+          <li class="pianokey white e"></li>
+            <li class="pianokey black ds"></li>
+            <li class="pianokey white d"></li>
+            <li class="pianokey black cs"></li>
+            <li class="pianokey white c"></li>
+          <li class="pianokey white b"></li>
+          <li class="pianokey black as"></li>
+          <li class="pianokey white a"></li>
+          <li class="pianokey black gs"></li>
+          <li class="pianokey white g"></li>
+          <li class="pianokey black fs"></li>
+          <li class="pianokey white f"></li>
+          <li class="pianokey white e"></li>
+            <li class="pianokey black ds"></li>
+            <li class="pianokey white d"></li>
+            <li class="pianokey black cs"></li>
+            <li class="pianokey white c"></li>
+          <li class="pianokey white b"></li>
+          <li class="pianokey black as"></li>
+          <li class="pianokey white a"></li>
+          <li class="pianokey black gs"></li>
+          <li class="pianokey white g"></li>
+          <li class="pianokey black fs"></li>
+          <li class="pianokey white f"></li>
+        </ul>
+      </div>-->
+    </footer>
+
+   
+      
+      <script type="text/javascript">
+      
+        let knobList = document.getElementsByClassName('knob');
+        for(let i = 0; i < knobList.length; i++) {
+          (function(index) {
+              let dial1 = new Knob({
+                size: "large",
+                type: "FStyle",
+                lowVal: 0,
+                highVal: 100,
+                value: 50,
+                sensitivity: 1,
+                label: false,
+                lblTxtColor: "black",
+                id: knobList[index].id
+              });
+          
+           // userValues[index].addEventListener("change", function() {
+           //   window.inst.chgParameters(userValues[index].id.split("-")[0], userValues[index].value);
+            })(i);
+        }
+        
+        //dial1.getValue(); //get dial 1's value
+
+        //dial2.setValue(20); //set dial 2's value to 20 
+
+        //the main event
+        function knobChanged(id, val) {
+          let sliderVal = document.getElementById(`${id}-val`)
+          sliderVal.value = `${val}`;
+          sliderVal.dispatchEvent(new Event('change'));
+        }
+        
+        let userValues = document.getElementsByClassName('value');
+        for(let i = 0; i < userValues.length; i++) {
+          (function(index) {
+            userValues[index].addEventListener("change", function() {
+              window.inst.chgParameters(userValues[index].id.split("-")[0], userValues[index].value);
+            })
+          })(i);
+        }
+      </script>
+      
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.3.0/math.min.js"></script>
+      <script type="text/javascript" src="./js/piano.js"></script>
+      
+      <script src="js/midi.js"></script>
+      <script src="js/draw.js"></script>
+
+      <script>
+        function startApp(){
+
+                $("#acceuil").fadeOut()
+
+        }
+      </script>
+      
+      <script type="module" src="js/init.js"></script>
+      
+     
+      
+
+  </body>
+ 
+</html>
